@@ -60,46 +60,84 @@
               <p class="text-lead">Early responses to <em>Permanent Scars</em>, the debut novel from My Five Ravens
                 Publishing.</p>
               <p class="page-subnote">
-                Sample lines below illustrate the layout; attributed quotations will appear as they are
-                confirmed.
+                Comments below are shared by visitors and appear here as soon as they are posted.
               </p>
             </div>
 
-            <div class="testimonial-grid">
-              <figure class="testimonial-card">
-                <blockquote>
-                  “The prose stays close to the body and the room. Nothing cheapens what is at
-                  stake.”
-                </blockquote>
-                <figcaption>
-                  <p class="byline-name">Forthcoming</p>
-                  <p class="byline-role">Independent reviewer</p>
-                </figcaption>
-              </figure>
+            <p id="reviews-loading" class="reviews-loading">Loading comments…</p>
+            <p id="reviews-error" class="reviews-error" hidden></p>
+            <div class="testimonial-grid" id="reviews-grid" aria-live="polite"></div>
 
-              <figure class="testimonial-card">
-                <blockquote>
-                  “A book for students who already know silences can be loud—and for the adults who
-                  are willing to read beside them.”
-                </blockquote>
-                <figcaption>
-                  <p class="byline-name">Forthcoming</p>
-                  <p class="byline-role">Educator</p>
-                </figcaption>
-              </figure>
-            </div>
-
-            <div class="cta-band">
-              <h2>Have a comment to share?</h2>
-              <p>
-                My Five Ravens welcomes thoughtful responses from readers, educators, counselors, and
-                reviewers.
-              </p>
-              <a
-                class="btn btn-secondary"
-                href="mailto:hello@myfiveravenspublishing.com?subject=Comment%20on%20Permanent%20Scars"
-                >Submit a Comment</a
+            <div class="cta-band" id="write-review">
+              <div
+                id="review-sent"
+                class="form-success-banner"
+                hidden
+                role="status"
               >
+                Thanks — your comment is now on this page.
+              </div>
+              <h2>Add your comment</h2>
+              <p>
+                Share a short note or quotation about <em>Permanent Scars</em>. It will show up above
+                right after you post (please keep it respectful and on-topic).
+              </p>
+              <!--
+                Supabase one-time setup:
+                1) Create a free project at https://supabase.com
+                2) SQL → New query → run:
+
+                create table public.site_reviews (
+                  id uuid default gen_random_uuid() primary key,
+                  created_at timestamptz default now() not null,
+                  name text not null,
+                  role text,
+                  comment text not null
+                );
+                alter table public.site_reviews enable row level security;
+                create policy "public read reviews" on public.site_reviews for select using (true);
+                create policy "public insert reviews" on public.site_reviews for insert with check (true);
+
+                3) Project Settings → API: copy Project URL and anon public key into MFR_SITE_REVIEWS below.
+              -->
+              <form class="review-form" id="review-form" action="#" method="post">
+                <input
+                  class="reviews-hp"
+                  type="text"
+                  name="website"
+                  autocomplete="off"
+                  tabindex="-1"
+                  aria-hidden="true"
+                  style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0"
+                />
+                <div class="review-form-fields">
+                  <div class="review-field">
+                    <label for="review-name">Your name</label>
+                    <input id="review-name" name="name" type="text" required autocomplete="name" />
+                  </div>
+                  <div class="review-field">
+                    <label for="review-role">Role or title <span class="hint">(optional)</span></label>
+                    <input
+                      id="review-role"
+                      name="role"
+                      type="text"
+                      autocomplete="organization-title"
+                      placeholder="e.g. educator, librarian, reader"
+                    />
+                  </div>
+                  <div class="review-field">
+                    <label for="review-quote">Your comment or short quotation</label>
+                    <textarea
+                      id="review-quote"
+                      name="comment"
+                      required
+                      maxlength="4000"
+                      placeholder="A few steady sentences are enough."
+                    ></textarea>
+                  </div>
+                </div>
+                <button type="submit" class="btn btn-primary">Post comment</button>
+              </form>
             </div>
           </div>
         </section>
@@ -130,5 +168,12 @@
       </footer>
     </div>
     <script src="js/nav.js"></script>
+    <script>
+      window.MFR_SITE_REVIEWS = {
+        supabaseUrl: "https://YOUR_PROJECT_REF.supabase.co",
+        supabaseAnonKey: "YOUR_ANON_PUBLIC_KEY",
+      };
+    </script>
+    <script src="js/reviews-board.js"></script>
   </body>
 </html>

@@ -947,6 +947,129 @@ h3 {
   margin-inline: auto;
 }
 
+.form-success-banner {
+  max-width: 40rem;
+  margin: 0 auto 2rem;
+  padding: 1rem 1.25rem;
+  background: rgba(168, 91, 58, 0.12);
+  border: 1px solid rgba(168, 91, 58, 0.25);
+  border-radius: 8px;
+  color: var(--text);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.form-success-banner[hidden] {
+  display: none;
+}
+
+.review-form {
+  margin-top: 1.75rem;
+  text-align: left;
+  max-width: 32rem;
+  margin-inline: auto;
+}
+
+.review-form-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 1.15rem;
+}
+
+.review-field label {
+  display: block;
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--slate);
+  margin-bottom: 0.35rem;
+}
+
+.review-field .hint {
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: 0;
+  font-size: 0.85rem;
+  color: var(--slate-muted);
+  margin-top: 0.15rem;
+}
+
+.review-field input,
+.review-field textarea {
+  width: 100%;
+  padding: 0.65rem 0.75rem;
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  line-height: 1.45;
+  color: var(--text);
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+}
+
+.review-field textarea {
+  min-height: 8rem;
+  resize: vertical;
+}
+
+.review-field input:focus,
+.review-field textarea:focus {
+  outline: 2px solid var(--primary);
+  outline-offset: 1px;
+  border-color: rgba(168, 91, 58, 0.35);
+}
+
+.review-form .btn[type="submit"] {
+  margin-top: 0.35rem;
+  width: 100%;
+}
+
+.review-form-fallback {
+  margin-top: 1.25rem;
+  font-size: 0.88rem;
+  color: var(--slate-muted);
+  margin-bottom: 0;
+}
+
+.review-form-fallback a {
+  font-weight: 500;
+}
+
+.reviews-loading {
+  text-align: center;
+  color: var(--slate-muted);
+  margin: 0 0 1.25rem;
+}
+
+.reviews-loading[hidden] {
+  display: none;
+}
+
+.reviews-error {
+  max-width: 40rem;
+  margin: 0 auto 1.5rem;
+  padding: 1rem 1.25rem;
+  background: rgba(180, 60, 60, 0.08);
+  border: 1px solid rgba(180, 60, 60, 0.28);
+  border-radius: 8px;
+  color: var(--text);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.reviews-error[hidden] {
+  display: none;
+}
+
+.reviews-empty {
+  grid-column: 1 / -1;
+  text-align: center;
+  color: var(--slate);
+  margin: 0;
+  padding: 2rem 1rem;
+}
+
 /* Video placeholders */
 .video-grid {
   display: grid;
