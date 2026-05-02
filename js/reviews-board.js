@@ -22,20 +22,23 @@
     });
   }
 
+  function supabaseAuthHeaders() {
+    var isOpaque = key.indexOf("sb_publishable_") === 0 || key.indexOf("sb_secret_") === 0;
+    if (isOpaque) {
+      return { apikey: key, Authorization: key };
+    }
+    return { apikey: key, Authorization: "Bearer " + key };
+  }
+
   function headersGet() {
-    return {
-      apikey: key,
-      Authorization: "Bearer " + key,
-    };
+    return supabaseAuthHeaders();
   }
 
   function headersPost() {
-    return {
-      apikey: key,
-      Authorization: "Bearer " + key,
-      "Content-Type": "application/json",
-      Prefer: "return=representation",
-    };
+    var h = supabaseAuthHeaders();
+    h["Content-Type"] = "application/json";
+    h.Prefer = "return=representation";
+    return h;
   }
 
   function cardEl(row) {
