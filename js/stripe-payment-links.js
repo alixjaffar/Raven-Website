@@ -16,8 +16,8 @@
 (function () {
   /** Paste each Payment Link URL from Stripe (starts with https://buy.stripe.com/… or checkout…) */
   var LINKS = {
-    part1Checkout: "https://buy.stripe.com/test_6oU5kDdgBc67e6UamI2Ry00",
-    fullCheckout: "https://buy.stripe.com/test_eVqeVdgsN8TVfaYamI2Ry01",
+    part1Checkout: "https://buy.stripe.com/fZu5kC6ku88i5cO1o67IY01",
+    fullCheckout: "https://buy.stripe.com/dRm28q6kucoy48K7Mu7IY00",
   };
 
   /** Root-relative paths — always resolve from the domain (avoids broken links from /page/ URLs). */
