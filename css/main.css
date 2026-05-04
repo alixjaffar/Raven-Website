@@ -467,6 +467,13 @@ h3 {
   color: var(--footer-muted);
 }
 
+.footer-powered {
+  margin-top: 0.65rem;
+  font-size: 0.75rem;
+  color: var(--footer-muted);
+  letter-spacing: 0.03em;
+}
+
 /* Buttons */
 .btn {
   display: inline-flex;
