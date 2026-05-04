@@ -8,8 +8,8 @@
  *     Part 1:    https://www.myfiveravens.com/thank-you-part1.html
  *     Full PDF: https://www.myfiveravens.com/thank-you-full-ebook.html
  *
- * Host your PDFs at the paths in DOWNLOADS (upload the folder `downloads/` with your files).
- * PDF filenames are gitignored so they are not committed by mistake.
+ * Host PDFs under /downloads/ on your domain (paths below are root-relative so they work from
+ * every page URL, including trailing-slash routes).
  *
  * Security: thank-you URLs are public. For stricter delivery, use Stripe webhooks or email with unique links.
  */
@@ -20,10 +20,10 @@
     fullCheckout: "https://buy.stripe.com/test_eVqeVdgsN8TVfaYamI2Ry01",
   };
 
-  /** Files you upload to /downloads/ on your host (relative to site root). */
+  /** Root-relative paths — always resolve from the domain (avoids broken links from /page/ URLs). */
   var DOWNLOADS = {
-    part1Pdf: "downloads/permanent-scars-part1.pdf",
-    fullPdf: "downloads/permanent-scars-full.pdf",
+    part1Pdf: "/downloads/permanent-scars-part1.pdf",
+    fullPdf: "/downloads/permanent-scars-full.pdf",
   };
 
   function readyStripe(url) {
@@ -53,13 +53,13 @@
     var dlPart = document.getElementById("mfr-download-part1");
     if (dlPart) {
       dlPart.setAttribute("href", DOWNLOADS.part1Pdf);
-      dlPart.setAttribute("download", "");
+      dlPart.setAttribute("download", "permanent-scars-part1.pdf");
     }
 
     var dlFull = document.getElementById("mfr-download-full");
     if (dlFull) {
       dlFull.setAttribute("href", DOWNLOADS.fullPdf);
-      dlFull.setAttribute("download", "");
+      dlFull.setAttribute("download", "permanent-scars-full.pdf");
     }
   });
 })();

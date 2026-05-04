@@ -4,5 +4,4 @@
 .env
 .env.*
 
-# Paid PDFs — upload to hosting separately; do not commit retail files
-downloads/*.pdf
+# Optional: ignore local secrets only — PDFs in downloads/ are deployed with the site.
