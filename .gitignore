@@ -3,3 +3,6 @@
 *.swo
 .env
 .env.*
+
+# Paid PDFs — upload to hosting separately; do not commit retail files
+downloads/*.pdf

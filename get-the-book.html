@@ -52,7 +52,6 @@
       </header>
 
       <main id="main">
-        <!-- Payment: replace href="#" on Buy buttons with your checkout URLs (e.g. Stripe / Lemon Squeezy). -->
         <section class="section">
           <div class="wrap">
             <div class="center-heading">
@@ -85,8 +84,10 @@
                 </p>
                 <a
                   class="btn btn-primary btn--block"
+                  id="mfr-stripe-part1"
                   href="#"
-                  title="Connect your checkout link here"
+                  aria-disabled="true"
+                  title="Add your Stripe Payment Link in js/stripe-payment-links.js"
                   >Buy Part 1 — $5</a
                 >
               </article>
@@ -99,12 +100,20 @@
                 </p>
                 <a
                   class="btn btn-primary btn--block"
+                  id="mfr-stripe-full"
                   href="#"
-                  title="Connect your checkout link here"
+                  aria-disabled="true"
+                  title="Add your Stripe Payment Link in js/stripe-payment-links.js"
                   >Buy Full Ebook — $12.99</a
                 >
               </article>
             </div>
+
+            <p class="checkout-flow-note">
+              Paid titles use Stripe checkout. After payment, Stripe sends customers back to this
+              site to download the PDF to their device (set each Payment Link’s success URL in Stripe
+              — see comments in <code>js/stripe-payment-links.js</code>).
+            </p>
 
             <div class="amazon-note">
               <p>
@@ -143,6 +152,7 @@
         </div>
       </footer>
     </div>
+    <script src="js/stripe-payment-links.js"></script>
     <script src="js/nav.js"></script>
   </body>
 </html>

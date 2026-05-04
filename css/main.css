@@ -550,6 +550,12 @@ h3 {
   width: 100%;
 }
 
+.btn[aria-disabled="true"] {
+  opacity: 0.55;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
 .headline-gap {
   margin-top: 1rem;
 }
@@ -829,6 +835,54 @@ h3 {
 
 .amazon-note p:last-child {
   margin-bottom: 0;
+}
+
+.checkout-flow-note {
+  margin-top: 2.25rem;
+  max-width: 42rem;
+  margin-inline: auto;
+  text-align: center;
+  font-size: 0.92rem;
+  line-height: 1.55;
+  color: var(--slate-muted);
+}
+
+.checkout-flow-note code {
+  font-size: 0.84em;
+  padding: 0.12em 0.35em;
+  border-radius: 4px;
+  background: rgba(26, 31, 46, 0.06);
+}
+
+.narrow-wrap {
+  max-width: 38rem;
+  margin-inline: auto;
+}
+
+.thank-you-box {
+  padding-block: clamp(1rem, 4vw, 2rem);
+}
+
+.thank-you-box h1 {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.thank-you-box .text-lead {
+  text-align: center;
+  margin-bottom: 0;
+}
+
+.thank-you-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 1.75rem;
+}
+
+.thank-you-footnote {
+  margin-top: 2rem;
 }
 
 /* Chapter reading */
